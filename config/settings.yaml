@@ -1,0 +1,58 @@
+# ---- PATHS ----
+source_dictionary: data/raw/enable2k.txt
+frequency_data: data/raw/count_1w.txt
+output_dir: data/output
+review_dir: review
+
+# ---- FREQUENCY THRESHOLD ----
+# Set this after running Prompt 4. Sweet spot is usually 1000-10000.
+frequency_threshold: 5000
+
+# ---- BUILT-IN FILTERS ----
+# Each filter can be enabled/disabled independently.
+# "mode" is either "reject" (auto-remove) or "flag" (send to review).
+filters:
+  frequency:
+    enabled: true
+    mode: reject
+    # Words in this file bypass the frequency filter entirely
+    whitelist: data/blocklists/archaic_whitelist.txt
+
+  blocklist:
+    enabled: true
+    mode: reject
+    # Every .txt file in this directory is loaded as a blocklist.
+    # To add a new blocklist, just drop a .txt file here — one word per line.
+    directory: data/blocklists/reject/
+
+  uk_spelling:
+    enabled: true
+    mode: reject
+    # Format: uk_spelling|us_spelling, one per line
+    patterns_file: data/blocklists/uk_spelling_patterns.txt
+
+  agent_nouns:
+    enabled: true
+    mode: flag
+    # Only flag -er words below this multiple of the main threshold
+    frequency_multiplier: 3
+
+  dialect:
+    enabled: true
+    mode: flag
+    # Pattern files: one regex per line, with an optional comment after #
+    # e.g.: .*ae$  # words ending in -ae
+    patterns_file: config/dialect_patterns.txt
+
+  scientific:
+    enabled: true
+    mode: flag
+    frequency_multiplier: 2
+    min_length: 14
+    # Combining forms to watch for: one prefix or suffix per line
+    forms_file: config/scientific_forms.txt
+
+# ---- CUSTOM FILTERS ----
+# Drop additional filter files into config/custom_filters/ to extend the pipeline.
+# See config/custom_filters/README.md for the format.
+custom_filters_dir: config/custom_filters/

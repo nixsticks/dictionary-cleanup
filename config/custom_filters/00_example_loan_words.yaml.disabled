@@ -1,0 +1,5 @@
+name: loan_words
+description: "Flag uncommon loan words (foreign currency, food, etc.)"
+mode: flag
+type: blocklist
+words_file: data/blocklists/loan_words.txt

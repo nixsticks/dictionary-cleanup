@@ -1,0 +1,3 @@
+^(br|h|sk|wh|b|fl|t|sn)ae$  # Scots -ae monosyllables only (brae, hae, tae, whae)
+^wh(ae|aur|een|ilk|igg)  # Specific Scots wh- forms (whaur, wheen, whilk)
+^(g|sp|cl|fl|gr|sk|sn|st|sw|cr|dr|fr|pr|tr|wr)it$  # Scots -it monosyllable past tenses only

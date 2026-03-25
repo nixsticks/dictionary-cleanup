@@ -1,0 +1,30 @@
+# Generated output, downloaded data, and review progress are local to each user.
+# Config, scripts, and blocklists are shared.
+
+# ---- Downloaded/generated data ----
+data/raw/*
+!data/raw/.gitkeep
+
+data/output/*
+!data/output/.gitkeep
+
+review/*
+!review/.gitkeep
+
+# ---- Python ----
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+env/
+*.egg-info/
+dist/
+build/
+
+# ---- Editor/IDE ----
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
