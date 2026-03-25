@@ -5,8 +5,8 @@ output_dir: data/output
 review_dir: review
 
 # ---- FREQUENCY THRESHOLD ----
-# Set this after running Prompt 4. Sweet spot is usually 1000-10000.
-frequency_threshold: 5000
+# Set this after running Prompt 4. Represents n most common words.
+frequency_threshold: 100000
 
 # ---- BUILT-IN FILTERS ----
 # Each filter can be enabled/disabled independently.
